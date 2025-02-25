@@ -5,7 +5,7 @@ using UsuarioApi.Models;
 
 namespace UsuarioApi.Controllers;
 
-[Route("api/usuarios")]
+[Route("api/usuarios")] // Ruta base
 [ApiController]
 public class UsuarioController : ControllerBase
 {
@@ -22,6 +22,8 @@ public class UsuarioController : ControllerBase
     {
         return await _context.Usuarios.ToListAsync();
     }
+
+    // ------------- otros --------------
 
     // Obtener un usuario por ID
     [HttpGet("{id}")]

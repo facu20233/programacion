@@ -1,7 +1,6 @@
 import api from "./api";
 
 import React, { useEffect, useState } from "react";
-// import { getUsuarios } from "./usuarioService";
 
 export const getUsuarios = async () => {
     try {
