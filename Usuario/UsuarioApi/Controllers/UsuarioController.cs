@@ -5,7 +5,7 @@ using UsuarioApi.Models;
 
 namespace UsuarioApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/usuarios")]
 [ApiController]
 public class UsuarioController : ControllerBase
 {

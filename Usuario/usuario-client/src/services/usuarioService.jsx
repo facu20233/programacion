@@ -1,7 +1,18 @@
 import api from "./api";
 
 import React, { useEffect, useState } from "react";
-import { getUsuarios } from "../services/usuarioService";
+// import { getUsuarios } from "./usuarioService";
+
+export const getUsuarios = async () => {
+    try {
+        const response = await fetch('http://localhost:5008/api/usuarios');
+        if (!response.ok) throw new Error('Error al obtener los usuarios');
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+};
 
 const UsuarioList = () => {
     const [usuarios, setUsuarios] = useState([]);

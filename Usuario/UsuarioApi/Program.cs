@@ -28,9 +28,16 @@ var app = builder.Build();
 // Usar CORS
 app.UseCors("PermitirFrontend");
 
-// Configuración de Swagger
+// Configurar CSP para permitir eval() SOLO en desarrollo
 if (app.Environment.IsDevelopment())
 {
+    app.Use(async (context, next) =>
+    {
+        context.Response.Headers.Append("Content-Security-Policy", "script-src 'self' 'unsafe-eval';");
+        await next();
+    });
+
+    // Configuración de Swagger
     app.UseSwagger();
     app.UseSwaggerUI();
 }
